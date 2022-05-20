@@ -51,7 +51,7 @@ def encontrar_links(soup):
 
 def encontrar_telefone(soup):
     try:
-        descricao = soup.find_all("div", class_="sixteen wide column")[2].p.get_text().strip()  # get_text pega so o texto, strip tira os espaços
+        descricao = soup.find_all("div", class_="sixteen wide column")[2].p.get_text().strip()  
     except:
         print('Erro ao encontrar descrição')
         return None
@@ -108,54 +108,4 @@ if __name__ == "__main__":
 
             for t in THREADS:
                 t.join()
-
-
-            #print(TELEFONES)
-            '''   
-            thread_1 = threading.Thread(target=descobrir_telefones)
-            thread_2 = threading.Thread(target=descobrir_telefones)
-            thread_3 = threading.Thread(target=descobrir_telefones)
-
-            thread_1.start()
-            thread_2.start()
-            thread_3.start()
-
-            thread_1.join()        # Espera as thread terminar
-            thread_2.join()
-            thread_3.join()
-
-            print(TELEFONES)
-'''
-'''
-resposta_busca = requisicao(URL_AUTOMOVEIS)
-if resposta_busca:
-    soup_busca = parsing(resposta_busca)
-    if soup_busca:
-        links = encontrar_links(soup_busca)   # Chama a função encontrar_links
-        for link in links:
-            resposta_anuncio = requisicao(DOMINIO + link)   # Pega o link do anuncio
-            if resposta_anuncio:
-                soup_anuncio = parsing(resposta_anuncio)
-                if soup_anuncio:
-                    print(encontrar_telefone(soup_anuncio))
-'''
-
-    #cards_pai = soup.find('div', class_='ui three doubling link cards')
-    #cards = cards_pai.find_all('a')
-
-    #print(cards[0]['href'])
-
-    #links = soup.find_all('a')
-    #for link in links:
-        #print(link['href'])
-        #print(link)
-
-    #soup = BeautifulSoup(resposta, 'html.parser')
-    #print(soup.prettify())                           # Mostra exibe codigo fonte
-    #print(soup.title.get_text().strip())             # Mostra somente o titulo da pagina
-
-'''    
-Para criar arquivo requeriments.txt
-pip feeze - para ver todos os arquivos instalados
-pip feeze > requeriments.txt  - para criar arquivo
-'''
+                
