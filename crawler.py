@@ -86,7 +86,7 @@ def salvar_telefones(telefone):
     string_telefone = '{}{}{}\n'.format(telefone[0], telefone[1], telefone[2])
     try:
         with open('telefones.csv', 'a') as arquivo:
-            arquivo.write(string_telefone)   # str converte a tupla em string
+            arquivo.write(string_telefone)   
     except Exception as error:
         print('Erro ao salvar arquivo')
         print(error)
